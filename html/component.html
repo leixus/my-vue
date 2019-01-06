@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="inputValue" />
+    <!--<button v-on:click="handleBtnClick">提交</button>-->
+    <button @click="handleBtnClick">提交</button>
+    <ul>
+        <!--<li v-for="item in list">-->
+            <!--{{item}}-->
+        <!--</li>-->
+        <to-list v-bind:content="item"
+                 v-for="item in list">
+
+        </to-list>
+    </ul>
+</div>
+
+<script>
+
+    // 全局
+    // Vue.component("ToList", {
+    //     props: ['content'],
+    //     template: "<li>{{content}}</li>"
+    // });
+
+    // 局部
+    var ToList = {
+        props: ['content'],
+        template: "<li>{{content}}</li>"
+    };
+
+    var app = new Vue({
+        el: "#app",
+        components: {
+            ToList: ToList
+        },
+        data: {
+            list: [],
+            inputValue: ""
+        },
+        methods: {
+            handleBtnClick: function () {
+                // alert(this.inputValue);
+                this.list.push(this.inputValue);
+                this.inputValue = "";
+            }
+        }
+    })
+</script>
+</body>
+</html>

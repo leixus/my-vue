@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--<child content='<p>lei</p><p>lei</p><p>lei</p>'></child>-->
+    <child>
+        <p slot="p1">lei</p>
+        <p slot="p2">xus</p>
+        <p>7777</p>
+    </child>
+</div>
+<script>
+
+    Vue.component("child", {
+        props: ['content'],
+        template: `<div>
+                        <slot name="p1"></slot>
+                        <p>Hello</p>
+                        <slot name="p2"></slot>
+                        <slot></slot>
+                    </div>`
+    });
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            
+        }
+    });
+</script>
+</body>
+</html>

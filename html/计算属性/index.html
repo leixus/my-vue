@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{fullName}}
+    {{age}}
+    <br />
+    {{fessName()}}
+
+    <br/>
+    {{flssName}}
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            firstName: "leixu",
+            twoName: "你好",
+            flssName: "leixu你好",
+            age: 13
+        },
+        // 侦听器
+        watch: {
+            firstName: function () {
+                this.flssName = this.firstName + this.twoName
+            },
+            twoName: function () {
+                this.flssName = this.firstName + this.twoName
+            }
+        },
+        // 方法
+        methods: {
+            fessName: function () {
+                console.log("计算了一次");
+                return this.firstName + this.twoName;
+            }
+        },
+        // 计算属性
+        computed: {
+            fullName: function () {
+                console.log("计算了一次");
+                return this.firstName + this.twoName;
+            }
+        }
+    });
+</script>
+</body>
+</html>

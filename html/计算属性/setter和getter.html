@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Setter和Getter</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{fullName}}
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            firstName: "leixu",
+            twoName: "你好",
+            flssName: "leixu你好",
+            age: 13
+        },
+        // 计算属性
+        computed: {
+            fullName: {
+                get: function () {
+                    return this.firstName +" "+ this.twoName;
+                },
+                set: function (value) {
+                    console.log(value);
+                    var full = value.split(' ');
+                    this.firstName = full[0];
+                    this.twoName = full[1];
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

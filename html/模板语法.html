@@ -10,12 +10,15 @@
     {{name}}
 
     <div v-text="name"></div>
+
+    <div v-html="vvv"></div>
 </div>
 <script>
     var app = new Vue({
         el: "#app",
         data: {
-            name: "xxxx"
+            name: "xxxx",
+            vvv: "<h1>1111</h1>"
         }
     });
 </script>

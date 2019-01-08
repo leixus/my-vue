@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="show">
+        Name: <input type="text" key="name" />
+    </div>
+    <div v-else="show">
+        Psd: <input type="text" key="psd" />
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            firstName: "leixu",
+            twoName: "你好",
+            flssName: "leixu你好",
+            show: false,
+            age: 13
+        }
+    });
+</script>

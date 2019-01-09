@@ -1,5 +1,5 @@
-# Vue-project
+# Vue-project 实战开发
 
-Vue 从入门到放弃
+> 
 
-## develop分支
+## Build Setup

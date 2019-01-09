@@ -2,30 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>css动画原理</title>
-    <script src="../../js/vue.js"></script>
+    <title>过度和动画</title>
+    <link rel="stylesheet" href="../../css/animate.css">
     <style>
-        .v-enter {
-            opacity: 0;
-        }
-        .v-enter-active {
-            transition: opacity 3s;
-        }
-        .v-leave-to {
-            opacity: 0;
-        }
-        .v-leave-active {
-            transition: opacity 3s;
-        }
+
     </style>
+    <script src="../../js/vue.js"></script>
 </head>
 <body>
 <div id="app">
-    <transition>
+    <transition name="fade"
+                appear
+                enter-active-class="animated swing"
+                leave-active-class="animated shake"
+                appear-active-class="animated swing">
         <div v-if="show">Hello World</div>
     </transition>
     <button @click="handleClick">动画</button>
 </div>
+
 <script>
     var app = new Vue({
         el: "#app",

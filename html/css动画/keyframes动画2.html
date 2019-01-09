@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyframes</title>
+    <script src="../../js/vue.js"></script>
+    <style>
+        @keyframes myMoves {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            10% {
+                transform: scale(1);
+            }
+        }
+
+        .venter {
+            transform-origin: left center;
+            animation: myMoves 1s;
+        }
+        .vleave {
+            transform-origin: left center;
+            animation: myMoves 1s reverse;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <transition name="fade"
+                enter-active-class="venter"
+                leave-active-class="vleave">
+        <div v-if="show">Hello World</div>
+    </transition>
+    <button @click="handleClick">动画</button>
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            show: true
+        },
+        methods: {
+            handleClick: function () {
+                this.show = (this.show === true ? false : true);
+            }
+        }
+    });
+</script>
+</body>
+</html>

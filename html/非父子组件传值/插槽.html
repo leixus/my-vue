@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>插槽</title>
     <script src="../../js/vue.js"></script>
 </head>
 <body>
 <div id="app">
-<<<<<<< HEAD
     <child content="lei" @change="handleChange"></child>
     <child content="xu" @change="handleChange"></child>
 </div>
@@ -37,44 +36,17 @@
                 that.resultContent = msg;
             })
         }
-=======
-    <!--<child content='<p>lei</p><p>lei</p><p>lei</p>'></child>-->
-    <child>
-        <p slot="p1">lei</p>
-        <p slot="p2">xus</p>
-        <p>7777</p>
-    </child>
-</div>
-<script>
-
-    Vue.component("child", {
-        props: ['content'],
-        template: `<div>
-                        <slot name="p1"></slot>
-                        <p>Hello</p>
-                        <slot name="p2"></slot>
-                        <slot></slot>
-                    </div>`
->>>>>>> b9c691a41349d9bed7098d599e53c8ab927d1a77
     });
 
     var app = new Vue({
         el: "#app",
-<<<<<<< HEAD
-        props: {
-
-        },
         data: {
-            message: "信息"
+
         },
         methods: {
             handleChange: function () {
-                alert();
+                
             }
-=======
-        data: {
-            
->>>>>>> b9c691a41349d9bed7098d599e53c8ab927d1a77
         }
     });
 </script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js动画</title>
+    <link rel="stylesheet" href="../../css/animate.css">
+    <style>
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: opacity 3s;
+        }
+    </style>
+    <script src="../../js/vue.js"></script>
+    <script src="../../js/velocity.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="show">Hello World</div>
+    <div v-else>Byeby World</div>
+    <button @click="handleClick">动画</button>
+</div>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            show: true
+        },
+        methods: {
+            handleClick: function () {
+                this.show = !this.show;
+            }
+        }
+    });
+</script>
+</body>
+</html>

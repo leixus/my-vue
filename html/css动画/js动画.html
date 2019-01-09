@@ -5,48 +5,28 @@
     <title>js动画</title>
     <link rel="stylesheet" href="../../css/animate.css">
     <style>
-        .fade-enter,
-        .fade-leave-to{
-            opacity: 0;
-        }
-        .fade-enter-active,
-        .fade-leave-active{
-            transition: opacity 3s;
-        }
+        /*.fade-enter,*/
+        /*.fade-leave-to{*/
+            /*opacity: 0;*/
+        /*}*/
+        /*.fade-enter-active,*/
+        /*.fade-leave-active{*/
+            /*transition: opacity 3s;*/
+        /*}*/
     </style>
     <script src="../../js/vue.js"></script>
+    <script src="../../js/velocity.min.js"></script>
 </head>
 <body>
 <div id="app">
-
-    <transition name="fade"
-                :duration="{enter: 5000, leave: 10000}"
-                appear
-                enter-active-class="animated swing fade-enter-active"
-                leave-active-class="animated shake fade-leave-active"
-                appear-active-class="animated swing">
+    <transition
+            name="fade"
+            @before-enter="handleBeforeEnter"
+            @enter="handleEnter" 
+            @after-enter="handleAfterEnter">
         <div v-if="show">Hello World</div>
     </transition>
 
-    <!--自定义时长-->
-    <!--<transition name="fade"-->
-    <!--:duration="10000"-->
-    <!--appear-->
-    <!--enter-active-class="animated swing fade-enter-active"-->
-    <!--leave-active-class="animated shake fade-leave-active"-->
-    <!--appear-active-class="animated swing">-->
-    <!--<div v-if="show">Hello World</div>-->
-    <!--</transition>-->
-
-    <!--以transition时长为准-->
-    <!--<transition name="fade"-->
-    <!--type="transition"-->
-    <!--appear-->
-    <!--enter-active-class="animated swing fade-enter-active"-->
-    <!--leave-active-class="animated shake fade-leave-active"-->
-    <!--appear-active-class="animated swing">-->
-    <!--<div v-if="show">Hello World</div>-->
-    <!--</transition>-->
     <button @click="handleClick">动画</button>
 </div>
 
@@ -59,6 +39,20 @@
         methods: {
             handleClick: function () {
                 this.show = (this.show === true ? false : true);
+            },
+            handleBeforeEnter: function(el) {
+                // el.style.color = 'red';
+                el.style.opacity = 0;
+            },
+            handleEnter: function (el, done) {
+                // setTimeout(() => {
+                //     el.style.color = 'green';
+                //     done();
+                // }, 2000);
+                Velocity(el, {opacity: 1}, {duration: 1000, component: done})
+            },
+            handleAfterEnter: function (el) {
+                // el.style.color = "black";
             }
         }
     });

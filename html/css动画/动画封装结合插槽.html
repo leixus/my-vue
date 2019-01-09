@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画封装结合插槽</title>
+    <style>
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: opacity 3s;
+        }
+    </style>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <fade :show="show">
+        <div>Hello World</div>
+    </fade>
+
+    <fade :show="show">
+        <h1>Hello World</h1>
+    </fade>
+    <button @click="handleClcik">切换</button>
+</div>
+<script>
+
+    Vue.component("fade", {
+        props: ['show'],
+        template: `<transition><slot v-if="show"></slot></transition>`
+    });
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            show: true
+        },
+        methods: {
+            handleClcik: function () {
+                this.show = !this.show;
+            }
+        }
+    });
+</script>
+</body>
+</html>

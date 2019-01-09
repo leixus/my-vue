@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态组件和v-once</title>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--第一种-->
+    <child-one v-if="type === 'child-one'"></child-one>
+    <child-two v-if="type === 'child-two'"></child-two>
+    <!--第二种-->
+    <!--<component :is="type"></component>-->
+    <button @click="changeHandle">点击切换</button>
+</div>
+<script>
+
+    // v-once // 缓存
+    Vue.component("child-one", {
+        template: "<div v-once>child-one</div>"
+    });
+
+    Vue.component("child-two", {
+        template: "<div v-once>child-two</div>"
+    });
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            type: "child-one"
+        },
+        methods: {
+            changeHandle: function f() {
+                this.type = (this.type === "child-two" ? "child-one" : "child-two")
+            }
+        }
+
+    });
+</script>
+</body>
+</html>

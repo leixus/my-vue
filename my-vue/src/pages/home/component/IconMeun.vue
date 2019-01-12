@@ -1,11 +1,16 @@
 <template>
     <div class="icons">
-      <div class="icon" v-for="item of iconList" :key="item.id">
-        <div class="icon-img">
-          <img class="icon-img-content" :src="item.imgUrl" alt="">
-        </div>
-        <p class="icon-desc">{{item.desc}}</p>
-      </div>
+      <swiper :options="swiperOption">
+        <swiper-slide v-for="(page, index) of pages" :key="index">
+          <div class="icon" v-for="item of page" :key="item.id">
+            <div class="icon-img">
+              <img class="icon-img-content" :src="item.imgUrl" alt="">
+            </div>
+            <p class="icon-desc">{{item.desc}}</p>
+          </div>
+        </swiper-slide>
+        <div class="swiper-pagination"  slot="pagination"></div>
+      </swiper>
     </div>
 </template>
 
@@ -14,6 +19,11 @@ export default {
   name: 'IconMeun',
   data () {
     return {
+      swiperOption: {
+        pagination: '.swiper-pagination',
+        // loop: true,
+        autoplay: false
+      },
       iconList: [
         {
           'id': '0001',
@@ -62,12 +72,29 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    pages () {
+      const pages = []
+      this.iconList.forEach((item, index) => {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
   @import 'src/assets/styles/style';
+  .icons >>> .swiper-container {
+    height: 0;
+    padding-bottom: 50%;
+  }
   .icons {
     width: 100%;
     overflow: hidden;

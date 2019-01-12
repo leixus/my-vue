@@ -1,10 +1,10 @@
 <template>
     <div class="icons">
-      <div class="icon">
+      <div class="icon" v-for="item of iconList" :key="item.id">
         <div class="icon-img">
-          <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png" alt="">
+          <img class="icon-img-content" :src="item.imgUrl" alt="">
         </div>
-        <p class="icon-desc">xxx</p>
+        <p class="icon-desc">{{item.desc}}</p>
       </div>
     </div>
 </template>
@@ -16,8 +16,49 @@ export default {
     return {
       iconList: [
         {
-          id: 1,
-          url: ''
+          'id': '0001',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
+          'desc': '景点门票'
+        },
+        {
+          'id': '0002',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png',
+          'desc': '滑雪季'
+        },
+        {
+          'id': '0003',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
+          'desc': '泡温泉'
+        },
+        {
+          'id': '0004',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
+          'desc': '动植园'
+        },
+        {
+          'id': '0005',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/d0/e09575e66f4aa402.png',
+          'desc': '游乐园'
+        },
+        {
+          'id': '0006',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/59/569d3c096e542502.png',
+          'desc': '必游榜单'
+        },
+        {
+          'id': '0007',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/17/4bd370f3eb1acd02.png',
+          'desc': '演出'
+        },
+        {
+          'id': '0008',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/7f/b1ea3c8c7fb6db02.png',
+          'desc': '城市观光'
+        },
+        {
+          'id': '0009',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png',
+          'desc': '一日游'
         }
       ]
     }
@@ -31,14 +72,15 @@ export default {
     width: 100%;
     overflow: hidden;
     height: 0;
-    background: green;
+    margin-top: .1rem;
+    /*background: green;*/
     padding-bottom: 50%;
     .icon {
       width: 25%;
       height: 25%;
       padding-bottom: 25%;
       float: left;
-      background: red;
+      /*background: red;*/
       position: relative;
       .icon-img{
         position: absolute;
@@ -47,6 +89,7 @@ export default {
         right: 0;
         bottom: .44rem;
         box-sizing: border-box;
+        padding: .1rem;
         .icon-img-content{
           height: 100%;
           display: block;

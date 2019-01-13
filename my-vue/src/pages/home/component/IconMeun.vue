@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div class="icons">
       <swiper :options="swiperOption">
         <swiper-slide v-for="(page, index) of pages" :key="index">
@@ -12,6 +13,8 @@
         <div class="swiper-pagination"  slot="pagination"></div>
       </swiper>
     </div>
+    <hr class="hrs" />
+  </div>
 </template>
 
 <script>
@@ -116,7 +119,7 @@ export default {
         right: 0;
         bottom: .44rem;
         box-sizing: border-box;
-        padding: .1rem;
+        padding: .2rem;
         .icon-img-content{
           height: 100%;
           display: block;
@@ -135,5 +138,11 @@ export default {
         @include ellipsis;
       }
     }
+  }
+  .hrs {
+    height: .02rem;
+    margin: .1rem 0;
+    border: medium none;
+    border-top: .02rem solid #F5F5F5;
   }
 </style>

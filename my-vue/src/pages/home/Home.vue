@@ -3,7 +3,10 @@
         <Header></Header>
         <Swipers></Swipers>
         <icon-meun></icon-meun>
-        <div>home</div>
+        <Popular></Popular>
+        <MyLike></MyLike>
+        <WeekendTrip></WeekendTrip>
+        <Footer></Footer>
     </div>
 </template>
 
@@ -11,12 +14,22 @@
 import Header from './component/Header'
 import Swipers from './component/Swipers'
 import IconMeun from './component/IconMeun'
+import Recommend from './component/Recommend'
+import Popular from './component/Popular'
+import MyLike from './component/MyLike'
+import WeekendTrip from './component/WeekendTrip'
+import Footer from './component/Footer'
 export default {
   name: 'Home',
   components: {
     Header,
     Swipers,
-    IconMeun
+    IconMeun,
+    Recommend,
+    Popular,
+    MyLike,
+    WeekendTrip,
+    Footer
   }
 }
 </script>

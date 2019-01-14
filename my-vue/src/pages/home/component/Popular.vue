@@ -80,9 +80,9 @@ export default {
     float: left;
     position: absolute;
     /*width: 100%;*/
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
+    /*overflow-x: scroll;*/
+    /*overflow-y: hidden;*/
+    /*white-space: nowrap;*/
     .box-img{
       overflow: hidden;
       width: 2rem;

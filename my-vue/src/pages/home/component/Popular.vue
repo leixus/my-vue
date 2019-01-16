@@ -2,17 +2,33 @@
     <div class="bg-color">
       <div class="bg2">
         <title-all></title-all>
-        <div class="box-margin">
-          <ul class="flex-img">
-            <li class="box-img" v-for="item of popularsList" :key="item.id">
-              <img :src="item.url" alt="">
-              <p class="p1">{{item.text}}</p>
-              <p class="p2">
-                <span class="p2-sp1">{{item.money}}</span>起
-              </p>
-            </li>
-          </ul>
-        </div>
+        <ul class="mp-hotsale-list">
+          <li class="mp-hotsale-item" v-for="item of list" :key="item.id">
+            <a class="mp-fulllink" href=""
+               data-click="ts_hotsale" data-click-index="0">
+              <div class="mp-hotsale-tag image-ready">
+                <img class="mp-hotsale-tagimg" :src="item.top"
+                     :alt="item.title">
+              </div>
+              <div class="mp-hotsale-imgcon image-ready">
+                <img :src="item.imgUrl"
+                     :alt="item.title">
+              </div>
+              <div class="mp-hotsale-sight mp-ellipsis">
+                {{item.title}}
+              </div>
+              <div class="mp-hotsale-price">
+                <span class="mpg-price">
+                    ¥
+                    <em class="mpg-price-num">
+                        {{item.price}}
+                    </em>
+                </span>
+                起
+              </div>
+            </a>
+          </li>
+        </ul>
       </div>
 
     </div>
@@ -22,37 +38,14 @@
 import TitleAll from './TitleAll'
 export default {
   name: 'Popular',
+  props: {
+    list: Array
+  },
   components: {
     TitleAll
   },
   data () {
     return {
-      popularsList: [
-        {
-          id: 1,
-          url: 'http://img1.qunarzz.com/sight/p0/1508/f7/f7c3be996152011c.img.jpg_250x250_1cd1e3cf.jpg',
-          text: '南京总统府',
-          money: '¥46.01'
-        },
-        {
-          id: 2,
-          url: 'http://img1.qunarzz.com/sight/p0/1507/a3/a37ced8252b273c9.img.jpg_250x250_c02fb8cf.jpg',
-          text: '夫子庙秦淮河游船',
-          money: '¥37.21'
-        },
-        {
-          id: 3,
-          url: 'http://img1.qunarzz.com/sight/p0/1709/b5/b565f06947c8cdeea3.water.jpg_250x250_b816f014.jpg',
-          text: '南京银杏湖',
-          money: '¥55.89'
-        },
-        {
-          id: 4,
-          url: 'http://img1.qunarzz.com/sight/p0/1411/b3/1415e635014967c75a3d955ae256a628.water.jpg_250x250_90a5b193.jpg',
-          text: '南京汤山一号温泉',
-          money: '¥36.55'
-        }
-      ]
     }
   }
 }
@@ -66,51 +59,72 @@ export default {
   .bg2{
     background: #ffffff;
   }
-  .box-margin{
-    margin: 0 .1rem;
-    position: relative;
-    height: 0;
-    padding-bottom: 40%;
+  .mp-hotsale-list {
+    padding: 0 .24rem;
+    overflow-x: scroll;
+    white-space: nowrap;
   }
-  .flex-img{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    float: left;
+  .mp-hotsale-item {
+    position: relative;
+    display: inline-block;
+    padding: .06rem 0 .2rem;
+    width: 2rem;
+    margin: .1rem;
+  }
+  .mp-fulllink {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .image-ready {
+    background: none !important;
+  }
+  .mp-hotsale-tag {
     position: absolute;
-    /*width: 100%;*/
-    /*overflow-x: scroll;*/
-    /*overflow-y: hidden;*/
-    /*white-space: nowrap;*/
-    .box-img{
-      overflow: hidden;
-      width: 2rem;
-      height: 100%;
-      /*padding-bottom: 40%;*/
-      margin-left: .12rem;
-      /*float: left;*/
-      img{
-        width: 100%;
-        /*border: 1px solid #ccc;*/
-      }
-      p{
-        text-align: center;
-      }
-      .p1{
-        color: #212121;
-        font-size: .24rem;
-        margin-top: .2rem;
-      }
-      .p2{
-        margin-top: .1rem;
-      }
-      .p2-sp1{
-        color: #ff8300;
-        font-size: .24rem;
-        line-height: .36rem;
-      }
-    }
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+    width: .84rem;
+    height: .4rem;
+  }
+  .image-ready img {
+    opacity: 1;
+  }
+  .mp-hotsale-tagimg {
+    width: 100%;
+  }
+  .mp-hotsale-imgcon {
+    overflow: hidden;
+    width: 2rem;
+    height: 0;
+    padding-bottom: 100%;
+    background: #f0f5f8;
+  }
+  .mp-hotsale-imgcon img {
+    width: 100%;
+  }
+  .mp-hotsale-sight {
+    margin-top: .12rem;
+    color: #212121;
+    font-size: .24rem;
+    line-height: .32rem;
+    text-align: center;
+  }
+  .mp-ellipsis {
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .mp-hotsale-price {
+    color: #616161;
+    font-size: .24rem;
+    line-height: .36rem;
+    text-align: center;
+  }
+  .mp-hotsale-price .mpg-price {
+    color: #ff8300;
   }
 }
 </style>

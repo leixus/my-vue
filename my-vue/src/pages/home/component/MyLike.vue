@@ -5,7 +5,7 @@
       <span>猜你喜欢</span>
     </div>
     <div class="like-details">
-      <div class="details-flex" v-for="item of likeList" :key="item.id">
+      <div class="details-flex" v-for="item of list" :key="item.id">
         <div class="box-img">
           <img :src="item.url" :alt="item.title">
         </div>
@@ -32,50 +32,12 @@
 <script>
 export default {
   name: 'MyLike',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      likeList: [
-        {
-          id: 1,
-          url: 'http://img1.qunarzz.com/sight/p0/1411/bb/538133c76765880a3d3c802e45015c57.water.jpg_200x200_169b048c.jpg',
-          title: '紫清湖生态温泉',
-          assess: 1442,
-          price: 126.7,
-          address: '江宁区'
-        },
-        {
-          id: 2,
-          url: 'http://img1.qunarzz.com/sight/p0/1505/f4/f455d92ba582f608.water.jpg_200x200_375e5775.jpg',
-          title: '南京汤山颐尚温泉',
-          assess: 2367,
-          price: 117.7,
-          address: '江宁区'
-        },
-        {
-          id: 3,
-          url: 'http://img1.qunarzz.com/sight/p0/1504/15/1530936526074f62.water.jpg_200x200_fb55ee43.jpg',
-          title: '六朝博物馆',
-          assess: 1913,
-          price: 12,
-          address: '玄武区'
-        },
-        {
-          id: 4,
-          url: 'http://img1.qunarzz.com/sight/p18/201211/03/db9f2bb27ee40bf893835fbb.jpg_200x200_cf1de8d6.jpg',
-          title: '美龄宫',
-          assess: 1797,
-          price: 25.8,
-          address: '钟山风景...'
-        },
-        {
-          id: 5,
-          url: 'http://img1.qunarzz.com/sight/p0/1507/a3/a37ced8252b273c9.img.jpg_200x200_cfb06983.jpg',
-          title: '夫子庙秦淮河游船',
-          assess: 2893,
-          price: 90,
-          address: '秦淮区'
-        }
-      ]
+
     }
   }
 }

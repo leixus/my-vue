@@ -2,10 +2,10 @@
     <div>
         <Header></Header>
         <Swipers :list="swiperList"></Swipers>
-        <icon-meun></icon-meun>
-        <Popular></Popular>
-        <MyLike></MyLike>
-        <WeekendTrip></WeekendTrip>
+        <icon-meun :list="iconList"></icon-meun>
+        <Popular :list="popularList"></Popular>
+        <MyLike :list="myLikeList"></MyLike>
+        <WeekendTrip :list="weekendTrip"></WeekendTrip>
         <Footer></Footer>
     </div>
 </template>
@@ -14,7 +14,6 @@
 import Header from './component/Header'
 import Swipers from './component/Swipers'
 import IconMeun from './component/IconMeun'
-import Recommend from './component/Recommend'
 import Popular from './component/Popular'
 import MyLike from './component/MyLike'
 import WeekendTrip from './component/WeekendTrip'
@@ -26,14 +25,16 @@ export default {
     return {
       city: '',
       swiperList: [],
-      iconList: []
+      iconList: [],
+      popularList: [],
+      myLikeList: [],
+      weekendTrip: []
     }
   },
   components: {
     Header,
     Swipers,
     IconMeun,
-    Recommend,
     Popular,
     MyLike,
     WeekendTrip,
@@ -54,6 +55,9 @@ export default {
         const data = res.data
         this.swiperList = data.swiperList
         this.iconList = data.iconList
+        this.popularList = data.popularList
+        this.myLikeList = data.myLikeList
+        this.weekendTrip = data.weekendTrip
       }
     }
   }

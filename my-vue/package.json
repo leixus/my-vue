@@ -13,8 +13,17 @@
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js"
   },
+  "transformModules": {
+    "cube-ui": {
+      "transform": "cube-ui/src/modules/${member}",
+      "kebabCase": true
+    }
+  },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-plugin-component": "^1.1.1",
+    "cube-ui": "^1.12.8",
+    "element-ui": "^2.4.11",
     "fastclick": "^1.0.6",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
@@ -22,7 +31,10 @@
     "stylus-loader": "^3.0.2",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "2.6.7",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vux": "^2.9.2",
+    "webpack-post-compile-plugin": "^1.0.0",
+    "webpack-transform-modules-plugin": "^0.4.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

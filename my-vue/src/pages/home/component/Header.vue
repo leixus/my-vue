@@ -7,10 +7,12 @@
           <span class="iconfont icon-show">&#xe632;</span>
           <input class="header-input" type="text" placeholder="输入城市/景点/游玩主题" />
       </div>
-      <div class="header-city">
-          <span>城市</span>
-          <span class="iconfont icon-city">&#xe64a;</span>
-      </div>
+      <router-link to='/city'>
+        <div class="header-city">
+            <span>城市</span>
+            <span class="iconfont icon-city">&#xe64a;</span>
+        </div>
+      </router-link>
   </div>
 </template>
 
@@ -60,6 +62,7 @@ export default {
         float: right;
         text-align: center;
         margin-top: .05rem;
+        color: #fff;
         .icon-city{
             font-size: .2rem;
         }

@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'src/assets/styles/style';
+  @import '../../../assets/styles/style';
   .icons >>> .swiper-container {
     height: 0;
     padding-bottom: 50%;

@@ -1439,6 +1439,13 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
+better-scroll@1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/better-scroll/-/better-scroll-1.8.1.tgz#a8a66b5f30bfa381457551b621c184cd93829e5c"
+  integrity sha512-sAC2+crpAmbrSSPUz/p742qs06bw+AZd4KT12yBB2Dmcr+IAt8wQlt0/I75zQ8z5iktwiEy+Xug9dxSYgrfs7w==
+  dependencies:
+    babel-runtime "^6.0.0"
+
 better-scroll@~1.12.6:
   version "1.12.6"
   resolved "https://registry.yarnpkg.com/better-scroll/-/better-scroll-1.12.6.tgz#7548860f8b8c08c87e5af062e1da6e2c68c98337"

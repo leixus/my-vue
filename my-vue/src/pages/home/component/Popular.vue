@@ -8,7 +8,7 @@
                data-click="ts_hotsale" data-click-index="0">
               <div class="mp-hotsale-tag image-ready">
                 <img class="mp-hotsale-tagimg" :src="item.top"
-                     :alt="item.title">
+                     :alt="item.title?'':item.title">
               </div>
               <div class="mp-hotsale-imgcon image-ready">
                 <img :src="item.imgUrl"

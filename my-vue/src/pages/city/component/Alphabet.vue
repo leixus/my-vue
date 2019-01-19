@@ -3,6 +3,9 @@
     <li class="itemKey"
         v-for="item of letters"
         :key="item"
+        @touchstart="handleTouchStart"
+        @touchsmove="handleTouchMove"
+        @touchend="handleTouchEnd"
         @click="handleLetterClick">
       {{item}}
     </li>
@@ -32,6 +35,15 @@ export default {
   methods: {
     handleLetterClick (e) {
       this.$emit('change', e.target.innerText)
+    },
+    handleTouchStart () {
+
+    },
+    handleTouchMove () {
+
+    },
+    handleTouchEnd () {
+
     }
   }
 }

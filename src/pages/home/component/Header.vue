@@ -58,7 +58,8 @@ export default {
         }
     }
     .header-city{
-        width: 1.24rem;
+        min-width: 1.14rem;
+      padding: 0 .1rem;
         float: right;
         text-align: center;
         margin-top: .05rem;

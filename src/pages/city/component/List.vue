@@ -12,7 +12,10 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+          <div class="button-wrapper"
+               v-for="item of hot"
+               :key="item.id"
+               @click="handleCityClick(item.name)">
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -25,7 +28,8 @@
         <div class="item-list">
           <div class="item border-bottom"
                v-for="innerItem of item"
-               :key="innerItem.id">
+               :key="innerItem.id"
+               @click="handleCityClick(innerItem.name)">
             <div class="button">{{innerItem.name}}</div>
           </div>
         </div>
@@ -45,6 +49,14 @@ export default {
   },
   data () {
     return {
+    }
+  },
+  methods: {
+    handleCityClick (city) {
+      // alert(city)
+      // this.$store.dispatch('changeCity', city)
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
     }
   },
   watch: {

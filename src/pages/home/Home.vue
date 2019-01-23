@@ -1,13 +1,13 @@
 <template>
-    <div>
-        <Header></Header>
-        <Swipers :list="swiperList"></Swipers>
-        <icon-meun :list="iconList"></icon-meun>
-        <Popular :list="popularList"></Popular>
-        <MyLike :list="myLikeList"></MyLike>
-        <WeekendTrip :list="weekendTrip"></WeekendTrip>
-        <Footer></Footer>
-    </div>
+  <div>
+    <Header></Header>
+    <Swipers :list="swiperList"></Swipers>
+    <icon-meun :list="iconList"></icon-meun>
+    <Popular :list="popularList"></Popular>
+    <MyLike :list="myLikeList"></MyLike>
+    <WeekendTrip :list="weekendTrip"></WeekendTrip>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
@@ -19,11 +19,12 @@ import MyLike from './component/MyLike'
 import WeekendTrip from './component/WeekendTrip'
 import Footer from './component/Footer'
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   data () {
     return {
-      city: '',
+      lastCity: '',
       swiperList: [],
       iconList: [],
       popularList: [],
@@ -40,12 +41,12 @@ export default {
     WeekendTrip,
     Footer
   },
-  mounted () {
-    this.getHomeInfoData()
+  computed: {
+    ...mapState(['city'])
   },
   methods: {
     getHomeInfoData () {
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
@@ -58,6 +59,16 @@ export default {
         this.myLikeList = data.myLikeList
         this.weekendTrip = data.weekendTrip
       }
+    }
+  },
+  mounted () {
+    this.lastCity = this.city
+    this.getHomeInfoData()
+  },
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfoData()
     }
   }
 }

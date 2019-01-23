@@ -5,15 +5,6 @@ import mutations from './mutations'
 
 Vue.use(Vuex)
 
-let defaultCity = '上海'
-try {
-  if (localStorage.city) {
-    defaultCity = localStorage.city
-  }
-} catch (e) {
-
-}
-
 export default new Vuex.Store({
   // 第一种
   // state: {
@@ -39,7 +30,7 @@ export default new Vuex.Store({
   mutations,
   getters: {
     doubleCity () {
-      return state.city +','+ state.city
+      return state.city + ',' + state.city
     }
   }
 })

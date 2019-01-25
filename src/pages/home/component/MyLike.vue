@@ -5,7 +5,11 @@
       <span>猜你喜欢</span>
     </div>
     <div class="like-details">
-      <div class="details-flex" v-for="item of list" :key="item.id">
+      <router-link tag="div"
+                   class="details-flex"
+                   v-for="item of list"
+                   :key="item.id"
+                   :to="'/detail/' + item.id">
         <div class="box-img">
           <img :src="item.url" :alt="item.title">
         </div>
@@ -24,7 +28,7 @@
             <div>{{item.address}}</div>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
